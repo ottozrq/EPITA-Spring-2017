@@ -31,7 +31,7 @@ class WeatherFetch {
                 // Server has returned data
                 print("Raw data:\n\(data!)\n")
                 let dataString = String(data: data!, encoding: String.Encoding.utf8)
-                print("Human-readable data:\n\(dataString)")
+                print("Human-readable data:\n\(String(describing: dataString))")
             }
         }
         dataTask.resume()
