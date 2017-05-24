@@ -17,7 +17,7 @@ class weatherTableViewController: UITableViewController {
         
         weatherArray.append(Weather(city: "Paris", temp: 28, pic: nil)!);
         weatherArray.append(Weather(city: "shanghai", temp: 28, pic: nil)!);
-        weatherArray.append(Weather(city: "london", temp: 28, pic: nil)!);
+        weatherArray.append(Weather(city: "london", temp: -1, pic: nil)!);
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -45,10 +45,13 @@ class weatherTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "weatherCell", for: indexPath) as? weatherTableViewCell else {
+            fatalError("error")
+        }
         
-        cell.detailTextLabel?.text = weatherArray[indexPath.row].city
-        cell.detailTextLabel?.text = String(weatherArray[indexPath.row].temp)
+        cell.cityLabel?.text = weatherArray[indexPath.row].city
+        cell.tempLabel?.text = String(weatherArray[indexPath.row].temp)
+        cell.weatherImg.image = weatherArray[indexPath.row].pic
 
         // Configure the cell...
 
