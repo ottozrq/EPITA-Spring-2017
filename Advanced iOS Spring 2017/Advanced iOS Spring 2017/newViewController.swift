@@ -14,8 +14,8 @@ class newViewController: UIViewController {
     var weather: Weather?
     
     @IBOutlet weak var cityText: UITextField!
-    
     @IBOutlet weak var tempText: UITextField!
+    @IBOutlet weak var bgimg: UIImageView!
     
     @IBAction func cancelBtn(_ sender: Any) {
         dismiss(animated: true, completion: nil)
@@ -31,11 +31,14 @@ class newViewController: UIViewController {
         }
         let city = cityText.text
         let temp = Int(tempText.text!)
-        weather = Weather(city: city!, temp: temp!, pic: nil)
+        let imgname = String(arc4random() % 3 + 1)
+        weather = Weather(city: city!, temp: temp!, pic: UIImage(named: imgname))
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        bgimg.image = UIImage(named: "ng")
 
         // Do any additional setup after loading the view.
     }

@@ -24,9 +24,13 @@ class weatherTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        weatherArray.append(Weather(city: "Paris", temp: 28, pic: nil)!);
-        weatherArray.append(Weather(city: "shanghai", temp: 28, pic: nil)!);
-        weatherArray.append(Weather(city: "london", temp: -1, pic: nil)!);
+//        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "ng")!)
+        let bgimg = UIImageView(image: UIImage(named: "ng"))
+        self.tableView.backgroundView = bgimg
+
+        weatherArray.append(Weather(city: "Paris", temp: 5, pic: UIImage(named: "1"))!);
+        weatherArray.append(Weather(city: "shanghai", temp: 28, pic: UIImage(named: "2"))!);
+        weatherArray.append(Weather(city: "london", temp: -1, pic: UIImage(named: "3"))!);
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
